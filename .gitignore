@@ -137,3 +137,7 @@ dmypy.json
 # Ignore unpacked sqlite file but not zipped
 data/im.db
 !data/im.db.zip
+
+# Ignore pdf
+Diabetic-Hospital-Readmission_final_notebook.ipynb.pdf
+alisonpark3_Diabetic-Hospital-Readmission_github.pdf
