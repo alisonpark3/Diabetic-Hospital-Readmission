@@ -7,7 +7,7 @@ author: Alison Park
 <sup>(source. https://www.google.com/url?sa=i&url=https%3A%2F%2Fnews.keckmedicine.org%2Fclinical-trial-investigating-innovative-way-to-control-type-2-diabetes%2F&psig=AOvVaw3guxc0dr4fM2r_Xn9TZ9lx&ust=1685658625681000&source=images&cd=vfe&ved=0CBIQjhxqFwoTCKDy6O7NoP8CFQAAAAAdAAAAABAJ)</sup>
 
 ## Overview
-The objective was to develop a classification model to help hospitals improve 
+Hospital readmission for diabetic patients is a significant business problem with implications for patient outcomes and healthcare costs. In this project, a classification model was developed to predict hospital readmission for diabetic patients. The model demonstrated improvement compared to a baseline dummy model, with an increase in F1 score from 0.00 to 0.4479 and an increase in ROC AUC score from 0.5000 to 0.5449. The analysis of feature importance highlighted num_lab_procedures, num_medications, and time_in_hospital as the top influential features. These features provide valuable insights into the factors contributing to readmission risk. Future investigations could focus on feature engineering, exploring different algorithms, addressing class imbalance, and considering multi-class classification and time series analysis. By leveraging these findings, healthcare providers can tailor their policies and methodologies to improve care coordination, reduce readmission rates, and optimize patient outcomes while effectively managing healthcare resource utilization. 
 
 
 ## Business Understanding
@@ -59,7 +59,7 @@ In summary, the F1 score is a useful evaluation metric in the context of hospita
 
 ## Final Model
 
-We decided to use the second grid search for the decision tree model as the final model. This model had a f1 score of 0.5603. 
+The final model was created using the third grid search for the random forest model as the final model. This model had a f1 score of 0.4479. 
 
 ![Dummy Model vs Final Model](images/dummy_vs_final.png)
 
@@ -70,24 +70,53 @@ This shows the dummy model, model that purely guesses the most frequent (no read
 
 ![Top 10 key features](images/top_10_features.png)
 
-This graph shows the top 10 key features that is important to predict which patients will get the seasonal flu vaccine. I will be highlighting doctor's recommendation and age group (graphs are up in EDA section).
+This graph shows the top 10 key features which show the features that have the highest influence on the target variable in a machine learning model. The importance of features is determined by analyzing their contribution to the model's predictive performance.
 
-![Number of Emergency](images/number_emergency.png)
+![Number of lab procedures](images/number_lab_procedures.png)
 
-For those who got a doctor's recommendation, 73.8% of the patients received a vaccine. This is a drastic difference to only 34.6% of patients receiving the vaccine when they did not get a doctor's recommendation. It seems to be that a doctor's recommendation is important in a patient's decision to receive the flu vaccine.
+![Num meds](images/num_medications.png)
 
-![Num meds](images/num_meds.png)
+The analysis of feature importance reveals that num_lab_procedures, num_medications, and time_in_hospital are the most influential factors in predicting readmission for diabetic patients. These features indicate the number of laboratory procedures, medications administered, and duration of hospital stay, respectively. A higher number of lab procedures and medications, as well as a longer hospital stay, are associated with an increased likelihood of readmission.
 
-Age group 65+ have the highest vaccination rates. The bottom three age groups have more people that have not received the vaccine than those who did. This might be due to health policies already set in place for the elderly since they are at a higher-risk of getting sick. Since herd immunity is important, it is imperative to target the younger age groups as well to increase the overall effectivness of the vaccine.
+By recognizing the significance of these features, hospitals and healthcare providers can customize their care coordination strategies, discharge planning, and post-discharge follow-up to cater to the specific needs of diabetic patients. This targeted approach aims to enhance patient outcomes, lower readmission rates, and optimize the utilization of healthcare resources.
 
 
 ## Conclusions
 
+Hospital readmission for diabetic patients is a significant business problem with potential implications for patient outcomes and healthcare costs. It is well-established that hospital readmissions for diabetes are associated with worse long-term health outcomes for patients. Poorly controlled diabetes during the initial hospitalization can lead to complications and disease progression, including cardiovascular events, kidney problems, infections, and diabetic ketoacidosis. Inadequate management and fragmented care transitions contribute to gaps in follow-up care, medication adherence, and lifestyle management, further impacting patient health and well-being.
+
+From a healthcare resource perspective, hospital readmissions for diabetes impose a substantial burden on the healthcare system. Repeated hospitalizations increase healthcare utilization and costs, straining healthcare resources that could be better allocated to other areas of need. Additionally, fragmented care and lack of continuity disrupt the establishment of consistent and effective care plans, hindering disease management and potentially leading to avoidable readmissions.
+
+Addressing hospital readmission for diabetic patients requires comprehensive solutions that go beyond the scope of a single intervention. Improving care coordination, patient education, medication management, discharge planning, and post-discharge follow-up are all essential components. By focusing on these areas, healthcare providers can promote continuity of care, reduce readmission rates, improve patient outcomes, and mitigate the financial impact on the healthcare system.
+
+In the context of my classification model for predicting hospital readmission, the analysis of feature importance provides valuable insights into the factors that contribute most significantly to the prediction. In this case, the top three important features are num_lab_procedures, num_medications, and time_in_hospital. The high importance assigned to these features suggests that they have a strong influence on the likelihood of readmission for diabetic patients.
+
+The num_lab_procedures feature indicates that the number of laboratory procedures performed during a patient's encounter plays a crucial role in predicting readmission. A higher number of laboratory procedures may signify a more severe or complex medical condition, which increases the likelihood of readmission. Similarly, patients who require a larger number of medications may have more complex health conditions or ongoing treatment needs, increasing the chances of readmission. Lastly, the time_in_hospital feature reflects the duration of a patient's stay. A longer hospital stay often indicates a more severe or complicated case, thus raising the likelihood of readmission.
+
+By understanding these important features, hospitals and healthcare providers can tailor their policies and methodologies in care coordination, discharge planning, and post-discharge follow-up to address the specific needs of diabetic patients. This targeted approach can help improve patient outcomes, reduce readmission rates, and optimize healthcare resource utilization.
+
+In conclusion, hospital readmission for diabetic patients is a pressing business problem with significant implications for patient health outcomes and healthcare costs. The analysis of the Random Forest model has shed light on the key features that influence readmission prediction, providing actionable insights for hospitals to streamline their policies and methodologies in care coordination. By leveraging these insights and implementing comprehensive solutions, healthcare providers can work towards improving the lives of diabetic patients, reducing readmission rates, and optimizing healthcare resource utilization.
 
 
 ## Next Steps
 
+In order to enhance the model's performance in predicting hospital readmission for diabetic patients, several avenues for future investigation can be explored.
 
+1. Feature Engineering: Further refinement of the feature set can be undertaken to capture more relevant information. This may involve considering additional variables or deriving new features from the existing ones. For example, incorporating patient demographics, socioeconomic factors, comorbidities, or specific diabetes-related indicators could provide valuable insights into readmission risk.
+
+2. Algorithm Exploration: Experimenting with different machine learning algorithms or ensemble techniques may offer alternative modeling approaches. Different algorithms may have varying strengths and weaknesses, and exploring their applicability to the problem at hand can help identify the most suitable model for improved performance.
+
+3. Threshold Adjustment: Adjusting the classification threshold of the model can influence the trade-off between precision and recall. Fine-tuning the threshold to optimize the desired outcome, such as maximizing the identification of patients likely to be readmitted, can enhance the model's effectiveness in capturing positive cases.
+
+4. Addressing Class Imbalance: Considering the class imbalance issue in the dataset is crucial for achieving a well-calibrated model. Techniques such as oversampling the minority class (readmitted patients) or undersampling the majority class (non-readmitted patients) can be employed to balance the dataset, potentially improving recall and overall model performance.
+
+5. Multi-Class Classification: Exploring a multi-class classification approach, where patients are classified into "No Readmission," "Readmission within 30 days," or "Readmission after 30 days," can provide a more nuanced understanding of readmission risk. This information can guide the implementation of targeted policies and interventions, focusing on individuals with a higher likelihood of readmission in the near future.
+
+6. Time Series Analysis: Implementing time series models to track and analyze patients' glucose serum levels and A1C levels can provide valuable insights into their diabetic management. Regular monitoring of these indicators is essential for assessing patients' glycemic control and overall health status. By incorporating time series analysis into the predictive model, it is possible to leverage longitudinal data to identify patterns, trends, and potential risk factors for readmission.
+
+7. Data Collection: Gathering additional data can be beneficial for improving model performance. More data not only increases the sample size but also allows for a better representation of the underlying population. Obtaining a larger and more diverse dataset can help capture a wider range of patient characteristics, contextual factors, and clinical outcomes, thereby enhancing the model's generalization ability.
+
+By undertaking these future investigations, the understanding of hospital readmission for diabetic patients can be further refined, leading to more accurate predictions and actionable insights for healthcare providers.
 
 To improve the robustness of our model, we recommend exploring alternative machine learning algorithms such as XGBoost or conducting further grid searches on the random forest model to identify the optimal categorical model. This would enable us to identify more accurate features to target for future hospital policies.
 
@@ -105,22 +134,24 @@ We can be contacted via email at [alisonsjpark@gmail.com \(Alison\)](mailto:alis
 
 ```
 ├── data
-│   ├── submission_format.csv
-│   ├── test_set_features.csv
-│   ├── training_set_features.csv
-│   └── training_set_label.csv
+│   ├── diabetic_data.csv
+│   └── IDs_mapping.csv
+├── paper
+│   └── Impact of HbA1c Measurement on Hospital Readmission Rates- Analysis of 70,000 Clinical Database Patient Records.pdf
 ├── images
-│   ├── age.png
-│   ├── doctor_rec.png
+│   ├── diabetes.jpeg
 │   ├── dummy_vs_final.png
-│   ├── top_10_features.png
-│   └── vaccine.jpeg
+│   ├── num_lab_procedures.png
+│   ├── num_medications.png
+│   └── top_10_features.png
+├── scratch_notebooks
+│   ├── initial_notebook.ipynb
+│   └── scratch_notebook 67.ipynb
 ├── .gitignore
 ├── final_notebook.ipynb
 ├── LICENSE
 ├── DIABETES_Hospital Readmission_AlisonPark_ppt.pdf
-├── README.md
-└── 
+└── README.md
 ```
 
 
