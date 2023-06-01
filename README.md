@@ -124,8 +124,7 @@ Overall, the results of our study suggest that additional research is necessary 
 
 ## For Inquiries, Business Proposals, or Additional Information...
 
-Our process is available in this [Jupyter Notebook](./final_notebook.ipynb) or abbreviated in this 
-[presentation](./DIABETES_Hospital Readmission_AlisonPark_ppt.pdf).
+Our process is available in this [Jupyter Notebook](./final_notebook.ipynb) or abbreviated in this [presentation](./DIABETES_Hospital_Readmission_AlisonPark_ppt.pdf).
 
 We can be contacted via email at [alisonsjpark@gmail.com \(Alison\)](mailto:alisonsjpark@gmail.com) 
 
