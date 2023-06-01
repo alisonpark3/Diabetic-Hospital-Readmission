@@ -72,7 +72,7 @@ This shows the dummy model, model that purely guesses the most frequent (no read
 
 This graph shows the top 10 key features which show the features that have the highest influence on the target variable in a machine learning model. The importance of features is determined by analyzing their contribution to the model's predictive performance.
 
-![Number of lab procedures](images/number_lab_procedures.png)
+![Number of lab procedures](images/num_lab_procedures.png)
 
 ![Num meds](images/num_medications.png)
 
